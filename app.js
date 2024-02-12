@@ -1,27 +1,52 @@
-class NumberGame {
-  constructor() {
-    this.number = Math.ceil(Math.random() * 10);
-  }
+const createGame = () => {
+  const body = document.querySelector("body");
+  const input = document.querySelector("#input");
+  const button = document.querySelector("#submitBtn");
+  const message = document.querySelector(".message");
 
-  playGame() {
-    const guess = Number(document.getElementById("quantity").value);
-    const isValidGuess = guess >= 1 && guess <= 10;
-    const isWinner = guess === this.number;
+  const correctAnswer = Math.floor(Math.random() * 10) + 1;
+  let leftGuesses = 3;
 
-    let message = "";
-    if (!isValidGuess) {
-      message = "Please pick a number between 1 and 10";
-    } else if (isWinner) {
-      message = "You win!!";
-    } else {
-      message = `You lost. Sorry, the number was ${this.number}`;
+  const warningMessage = (text, color) => {
+    body.style.backgroundColor = color;
+    message.textContent = text;
+  };
+
+  const handleGuess = () => {
+    if (input.value !== "") {
+      let guess = parseInt(input.value);
+      leftGuesses--;
+
+      if ((guess < 1 || guess > 10) && leftGuesses > 0) {
+        warningMessage(
+          `Enter a number from 1 to 10. ${leftGuesses} guesses left.`,
+          "yellow"
+        );
+        input.value = "";
+      } else if (guess === correctAnswer) {
+        input.disabled = true;
+        warningMessage(`YOU WON!!! :) Correct answer: ${guess}`, "green");
+        button.textContent = "Play Again";
+      } else if (guess !== correctAnswer && leftGuesses > 0) {
+        warningMessage(
+          `Wrong answer! :| ${leftGuesses} guesses left.`,
+          "yellow"
+        );
+        input.value = "";
+      } else if (leftGuesses <= 0) {
+        input.disabled = true;
+        warningMessage(
+          `YOU LOST!!! :( Correct answer: ${correctAnswer}`,
+          "red"
+        );
+        button.textContent = "Play Again";
+      } else {
+        alert("Something went wrong!!! :(");
+      }
     }
+  };
 
-    alert(message);
-  }
-}
+  button.addEventListener("click", handleGuess);
+};
 
-const game = new NumberGame();
-document.getElementById("lockItInBtn").addEventListener("click", () => {
-  game.playGame();
-});
+createGame();

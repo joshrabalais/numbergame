@@ -1,71 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
-
 body {
-  font-family: "Roboto", sans-serif;
-  color: #14014d;
+  font-family: Arial, sans-serif;
   background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+#game {
+  text-align: center;
 }
 
-h1 {
-  text-align: center;
-  font-size: 2rem;
-  color: #14014d;
-}
-.secondarytext {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.instructions {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.numberguesses {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #333;
+h2 {
+  text-transform: uppercase;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
-form {
-  text-align: center;
+p {
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 
-input[type="number"] {
-  width: 100px;
-  padding: 10px;
-  border: 2px solid #14014d;
-  border-radius: 5px;
-  font-size: 1.1rem;
-}
-
-.button {
+button {
+  outline: none;
   border: none;
-  background-color: #14014d;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1.1rem;
+  background: #fcad26;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.button:hover {
-  background-color: #250066;
+button:hover {
+  background: #ffa400;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+[type="number"] {
+  padding: 10px;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+[type="number"]:focus {
+  border-color: #fcad26;
 }
