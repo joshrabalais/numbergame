@@ -1,55 +1,31 @@
-# Guessing Game
+# Number Guessing Game
 
-This section of code defines a function called findWinner using arrow function syntax. This function is responsible for determining whether the user has won a guessing game.
+This is a simple number guessing game implemented in JavaScript using an object-oriented approach. The game generates a random number between 1 and 10, and the player tries to guess the number by entering a value in the input field and clicking the "Lock It In" button.
 
-### How It Works:
+### How to Play
 
-Generate Winning Number:
+1 Enter a number between 1 and 10 in the input field.
+2 Click the "Lock It In" button to submit your guess.
+3 You will receive a message indicating whether your guess was correct or not.
 
-`const number = Math.ceil(Math.random() * 10);` Generates a random number between 1 and 10, which represents the winning number that the user needs to guess.
+# Object-Oriented Approach
 
-### Retrieve User's Guess:
+In this implementation, the game logic is encapsulated within a JavaScript class called NumberGame. Here's an overview of the class structure:
 
-`const guess = Number(document.getElementById("quantity").value);`
-Retrieves the user's guess from an input field with the id "quantity". It converts the value to a number using `Number().`
+` class NumberGame {
+constructor() {
+this.number = Math.ceil(Math.random() \* 10);
+}
 
-### Check Validity of Guess:
-
-`const isValidGuess = guess >= 1 && guess <= 10;`
-Checks if the user's guess is valid, meaning it falls within the range of 1 to 10.
-
-### Check if User Wins:
-
-`const isWinner = guess === number;`
-Checks if the user's guess matches the randomly generated winning number.
-
-### Set Message:
-
-`let message = "";
-if (!isValidGuess) {
-  message = "Please pick a number between 1 and 10";
-} else if (isWinner) {
-  message = "You win!!";
-} else {
-  message = `You lost. Sorry, the number was ${number}`;
+playGame() {
+// Game logic goes here
+}
 } `
 
-Based on the validity of the guess and whether the user has won, it sets the message variable accordingly.
+### Constructor
 
-### Display Message:
+The constructor initializes the number property with a random number between 1 and 10 when a new instance of the NumberGame class is created.
 
-`alert(message);`
+### playGame() Method
 
-Finally, it displays the message using alert().
-
-### Event Listener:
-
-` document.getElementById("lockItInBtn").addEventListener("click", findWinner);`
-
-Adds an event listener to a button with the id "lockItInBtn", so that when the button is clicked, the findWinner function is invoked.
-
-# Functional Programming Characteristics:
-
-Pure Functions: The findWinner function doesn't modify any external state and only relies on its input arguments to produce output.
-Immutability: Variables are declared using const, indicating that their values cannot be changed once assigned.
-Avoids Mutation: It doesn't mutate any variables or objects, but instead computes values based on the input and returns a result.
+The playGame() method contains the core game logic. It takes the player's guess from the input field, validates it, compares it with the randomly generated number, and displays an appropriate message to the player.
