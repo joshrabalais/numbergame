@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lock It In</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="lock.gif">
 </head>
 <body>
-    <h1>Lock It In</h1>
-
-    <div>Think you have what it takes to win 'Lock It In'?</div>
-    <div class="numberguesses">How to play:</div>
-    <div class="numberguesses">Guess a number between 1 and 10 and 'Lock It In'</div>
-    <form action="numberguess">
-        <input type="number" id="quantity" name="quantity" placeholder="Good Luck" min ="1" max="10">
-        <button type="button" onclick="findWinner()" class="button">Lock It In</button>
-    </form>
+    <div class="container">
+        <img src="lock.gif" alt="lockgif" width="200" class="image">
+        <h1>Lock It In</h1>
+        <div>Think you have what it takes to win 'Lock It In'?</div>
+        <div class="numberguesses">How to play:</div>
+        <div class="numberguesses">Guess a number between 1 and 10 and 'Lock It In'</div>
+        <form action="numberguess">
+            <input type="number" id="quantity" name="quantity" placeholder="Good Luck" min ="1" max="10">
+            <button type="button" onclick="findWinner()" class="button">Lock It In</button>
+        </form>
+    </div>
 </body>
 <script src="style.js"></script>
 </html>

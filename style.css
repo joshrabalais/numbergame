@@ -2,7 +2,15 @@
 
 * {
     font-family: 'Roboto', sans-serif;
-    color: rgb(20, 1, 77);
+    color: rgb(132, 142, 247);
+    background-color: whitesmoke;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
 h1 {
@@ -16,7 +24,7 @@ h1 {
 div {
     display: flex;
     justify-content: center;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .numberguesses {
@@ -35,14 +43,51 @@ form {
 }
 
 input {
-    width: 85px;
+    width: 150px;
     text-align: center;
+    font-size: 1.75rem;
+    color: rgb(132, 142, 247);
 }
 
 .button {
     border: none;
     display: inline-block;
-    background-color: blue;
+    background-color: rgb(5, 5, 106);
     color: white;
-    padding: 10px;
+    padding: 12px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 470px) {
+    div {
+        font-size: 15px;
+        font-weight: 900;
+    };
+
+    image {
+        width: 100px;
+    }
+
+    input {
+        font-size: 12px;
+    }
+    .button {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 280px) {
+    div {
+        font-size: 10px;
+        font-weight: 900;
+    };
+
+    image {
+        width: 50px;
+    }
+    input {
+        font-size: 12px;
+    }
+    .button {
+        font-size: 14px;
+    }
 }
